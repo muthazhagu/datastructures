@@ -77,6 +77,17 @@ public class ArrayToolbox {
         return false;
     }
 
+    public void reverse(int[] a) {
+        int temp;
+        for(int i = 0; i < a.length/2; i++) {
+            temp = a[i];
+            a[i] = a[a.length-1-i];
+            a[a.length-1-i] = temp;
+        }
+
+        print(a);
+    }
+
     public void print(int[] a) {
         if (a.length == 0) {
             System.out.print("[");
@@ -119,8 +130,17 @@ public class ArrayToolbox {
 
         // tests for de-duplication
         arrayToolbox.print(arrayToolbox.withoutDuplicates(new int[] {}));
+        arrayToolbox.print(arrayToolbox.withoutDuplicates(new int[] {1}));
         arrayToolbox.print(arrayToolbox.withoutDuplicates(new int[] {1, 2}));
         arrayToolbox.print(arrayToolbox.withoutDuplicates(new int[] {0, 0}));
         arrayToolbox.print(arrayToolbox.withoutDuplicates(new int[] {-1, 0, 1, 2, 2, -1}));
+        arrayToolbox.print(arrayToolbox.withoutDuplicates(new int[] {3, -1, 0, 1, 2, 2, -1}));
+
+        // tests for array reversal
+        arrayToolbox.reverse(new int[] {});
+        arrayToolbox.reverse(new int[] {1});
+        arrayToolbox.reverse(new int[] {1, 2});
+        arrayToolbox.reverse(new int[] {1, 2, 3, 4, 5});
+        arrayToolbox.reverse(new int[] {1, 2, 3, 4, 5, 6});
     }
 }
